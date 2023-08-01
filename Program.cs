@@ -3,8 +3,15 @@
 Console.WriteLine("Windows Shutdown Timer by Poltronas\n");
 
 Console.WriteLine("Select an option:\n\n1 - Set timer\n2 - Clear previous timers\n"); //Select desired action
+string option = Console.ReadLine();
 
-if (Console.ReadLine() == "2")
+while (option != "1" && option != "2") //Check for invalid input
+{
+    Console.WriteLine("\nInvalid input\n");
+    option = Console.ReadLine();
+}
+
+if (option == "2") //Clears any previous timers
 {
     System.Diagnostics.Process.Start("CMD.exe", $"/C shutdown -a");
     Console.WriteLine("Any existing timers were reset\n");
